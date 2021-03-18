@@ -342,18 +342,18 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="94dp"
-        android:layout_height="60dp"
+        android:layout_width="89dp"
+        android:layout_height="75dp"
         android:layout_margin="5dp"
         android:background="@drawable/circle"
         android:contentDescription="none"
         android:onClick="backBtn"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.987"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input"
-        app:layout_constraintVertical_bias="0.87"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_input_delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -344,8 +344,8 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="185dp"
-        android:layout_height="46dp"
+        android:layout_width="182dp"
+        android:layout_height="49dp"
         android:layout_margin="2dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
@@ -354,7 +354,7 @@
         android:onClick="backBtn"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/input"
         app:layout_constraintVertical_bias="1.0"

@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         display = findViewById(R.id.input);
 
-
         /* Listens to clicking in the  display */
 
         display.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     /* This method allows the user to edit text inside the operation based on the cursor position */
@@ -179,10 +177,16 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        else if ( close < open && !display.getText().toString().substring(length -1, length).equals("(")) {
-            updateText(")");
+        else if (close < open)
+        {
+            if (display.getText().toString().substring(length -1, length).equals("×") || display.getText().toString().substring(length -1, length).equals("+") || display.getText().toString().substring(length -1, length).equals("÷") || display.getText().toString().substring(length -1, length).equals("+") || display.getText().toString().substring(length -1, length).equals("-")) {
+                updateText("(");
+            }
 
-
+            else if(close < open && !display.getText().toString().substring(length -1, length).equals(")"))
+            {
+                updateText(")");
+            }
         }
 
         display.setSelection(position + 1);
@@ -232,22 +236,37 @@ public class MainActivity extends AppCompatActivity {
         input= input.replaceAll("÷", "/");
         input = input.replaceAll("×", "*");
 
+        DecimalFormat fmt1 = new DecimalFormat("#.####");
         Expression exp = new Expression(input);
 
-
         String disp = String.valueOf(exp.calculate());
+        double disp1 = exp.calculate();
+
+
+        if ( disp1 == (int) disp1) {
+
+            disp = String.valueOf((int)disp1);
+        }
+
+        else if(disp.split(".",2)[1].length() > 4) {
+
+            disp = String.valueOf(fmt1.format(disp1));
+        }
+
+        else {
+
+            disp = String.valueOf(disp1);
+        }
 
         display.setText(disp);
-        display.setSelection(disp.length()); //Update cursor
-
-
+        display.setSelection(disp.length()); //update cursor
 
     }
 
     public void backBtn(View view){
 
         int position = display.getSelectionStart(); /* Grab cursor's current position */
-        int length = display.getText().length();  /* Since we're going to push back the cursor then if we have an empty display it will cause a nullpointer error so we must keep track of the length */
+        int length = display.getText().length();  /* Since we're going to push back the cursor then if we have an empty display it will cause a null pointer error so we must keep track of the length */
 
         if ( position !=0 && length !=0) {
 
