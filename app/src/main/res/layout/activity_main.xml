@@ -344,7 +344,7 @@
         android:id="@+id/imageButton"
         android:layout_width="89dp"
         android:layout_height="75dp"
-        android:layout_margin="5dp"
+        android:layout_margin="0dp"
         android:background="@drawable/circle"
         android:contentDescription="none"
         android:onClick="backBtn"

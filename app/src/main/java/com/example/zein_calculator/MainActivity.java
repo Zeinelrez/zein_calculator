@@ -163,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
 
         /* I won't close the parenthesis unless something is added in it */
 
-
         if (open == close || display.getText().toString().substring(length -1, length).equals("(")) {
 
             updateText("(");

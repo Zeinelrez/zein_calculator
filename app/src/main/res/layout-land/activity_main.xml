@@ -327,8 +327,6 @@
         android:id="@+id/input"
         android:layout_width="452dp"
         android:layout_height="71dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
         android:focusable="false"
         android:gravity="end"
         android:importantForAutofill="no"
@@ -338,8 +336,10 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418"
+        app:layout_constraintVertical_bias="0.25"
         tools:ignore="Label" />
 
     <ImageButton
@@ -354,7 +354,7 @@
         android:onClick="backBtn"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/input"
         app:layout_constraintVertical_bias="1.0"
