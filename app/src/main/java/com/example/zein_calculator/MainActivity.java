@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -118,27 +119,22 @@ public class MainActivity extends AppCompatActivity {
     public void addBtn(View view){
 
         updateText("+");
-
-
     }
 
     public void divideBtn(View view){
 
         updateText("÷");
-
     }
 
     public void subtractBtn(View view){
 
         updateText("-");
-
     }
 
 
     public void clearBtn(View view){
 
         display.setText("");
-
     }
 
     /* We've got to track whether a parenthesis has been opened or closed */
@@ -157,13 +153,11 @@ public class MainActivity extends AppCompatActivity {
             if (display.getText().toString().substring(i, i+1).equals("(")) {
 
                 open += 1;
-
             }
 
             if ( display.getText().toString().substring(i, i+1).equals(")")) {
 
                 close+= 1;
-
             }
         }
 
@@ -173,8 +167,6 @@ public class MainActivity extends AppCompatActivity {
         if (open == close || display.getText().toString().substring(length -1, length).equals("(")) {
 
             updateText("(");
-
-
         }
 
         else if (close < open)
@@ -183,14 +175,20 @@ public class MainActivity extends AppCompatActivity {
                 updateText("(");
             }
 
-            else if(close < open && !display.getText().toString().substring(length -1, length).equals(")"))
+            else if(!display.getText().toString().substring(length -1, length).equals(")"))
             {
                 updateText(")");
+            }
+
+            else {
+                updateText(")");
+                Toast toast=Toast.makeText(getApplicationContext(),"Ayyyyyy",Toast.LENGTH_SHORT);
+                toast.setMargin(50,50);
+                toast.show();
             }
         }
 
         display.setSelection(position + 1);
-
     }
 
     public void expBtn(View view){
@@ -213,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
             if (display.getText().toString().substring(i, i+1).equals(".")) {
 
                 dec = dec && false;
-
             }
 
             else if (display.getText().toString().substring(i, i+1).equals("+") || display.getText().toString().substring(i, i+1).equals("÷") || display.getText().toString().substring(i, i+1).equals("×") || display.getText().toString().substring(i, i+1).equals("-")){
@@ -260,7 +257,6 @@ public class MainActivity extends AppCompatActivity {
 
         display.setText(disp);
         display.setSelection(disp.length()); //update cursor
-
     }
 
     public void backBtn(View view){
@@ -274,10 +270,6 @@ public class MainActivity extends AppCompatActivity {
             build.replace(position-1, position, ""); /*Capture parameter behind character and at the position of the cursor */
             display.setText(build);
             display.setSelection(position - 1); /* bringing the cursor back behind the character that we just deleted */
-
         }
-
     }
-
-
 }
